@@ -30,7 +30,7 @@ namespace HaloOnline.Server.Core.Http
                 };
                 userManager.CreateAsync(testUser1, "123").Wait();
                 userManager.CreateAsync(testUser2, "456").Wait();
-				userManager.CreateAsync(testUser3, "no1dead").wait();
+				userManager.CreateAsync(testUser3, "no1dead").Wait();
 
                 UserBaseData testUser1Data = new UserBaseData
                 {
@@ -64,8 +64,26 @@ namespace HaloOnline.Server.Core.Http
                     BattleTag = "BattleTag"
                 };
 
+				                UserBaseData testUser3Data = new UserBaseData
+                {
+                    User = new UserId
+                    {
+                        Id = testUser3.UserId
+                    },
+                    Nickname = "Nickname",
+                    Clan = new ClanId
+                    {
+                        Id = 1
+                    },
+                    ClanTag = "ClanTag",
+                    Level = 10,
+                    BattleTag = "BattleTag"
+                };
+
+				
                 userBaseDataRepository.CreateUserBaseDataAsync(testUser1Data);
                 userBaseDataRepository.CreateUserBaseDataAsync(testUser2Data);
+                userBaseDataRepository.CreateUserBaseDataAsync(testUser3Data);
             }
         }
     }
